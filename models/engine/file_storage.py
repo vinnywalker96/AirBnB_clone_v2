@@ -29,7 +29,6 @@ class FileStorage:
         """ delete object"""
         if obj:
             del obj
-	
 
     def reload(self):
         """Loads storage dictionary from file"""
