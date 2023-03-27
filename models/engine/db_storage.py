@@ -26,7 +26,7 @@ class DBStorage:
         """Connects to Engine"""
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
                                       .format(user, passwd, host, db),
-				      pool_pre_ping=True)
+                                      pool_pre_ping=True)
         if env == "test":
             Base.metadata.drop_all(self.__engine)
 
@@ -67,8 +67,8 @@ class DBStorage:
 
     def reload(self):
         """Load data to the database"""
-        Base.metatdata.create_all(self.__engine)
-        session = sessionmaker(bind=self.__engine, 
+        Base.metadata.create_all(self.__engine)
+        session = sessionmaker(bind=self.__engine,
                                expire_on_commit=False)
         Session = scoped_session(session)
         self.__session = Session()
