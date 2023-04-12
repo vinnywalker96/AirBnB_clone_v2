@@ -52,5 +52,5 @@ printf %s "server{
         location = /404.html{
              internal;
          }
-}" > /etc/nginx/sites-available/default
+}" > /etc/nginx/sites-enabled/default
 sudo service nginx restart
