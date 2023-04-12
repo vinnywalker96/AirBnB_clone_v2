@@ -13,7 +13,7 @@ fi
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/current/
-sudo cat > /data/web_static/releases/test/index.html <<'EOF'
+cat > /data/web_static/releases/test/index.html <<'EOF'
 <html>
     <head>
     </head>
