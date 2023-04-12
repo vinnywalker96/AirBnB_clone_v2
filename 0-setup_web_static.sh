@@ -41,7 +41,7 @@ printf %s "server{
  	listern 80 default_server;
 	listen [::]:80 default_server;
 	add_header X-Served-By $hostname;
-	server_name vestec.tech
+	
 	root /var/www/html;
 	index index.html index.htm;
 
