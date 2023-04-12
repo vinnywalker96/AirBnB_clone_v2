@@ -9,41 +9,10 @@ then
     sudo service nginx start
 fi
 
-# Checks if directory path exist and creates 
-if [ ! -d "/data/" ];
-then
-    sudo mkdir "/data/"
-fi
-
-if [ ! -d "/data/web_static/" ];
-then
-    sudo mkdir "/data/web_static/"
-fi
-
-if [ ! -d "data/web_static/current" ];
-then
-    sudo mkdir "data/web_static/current"
-fi
-
-if [ ! -d "/data/web_static/releases" ];
-then
-    sudo mkdir "/data/web_static/releases/"
-fi
-
-if [ ! -d "/data/web_static/shared/" ];
-then
-    sudo mkidr "/data/web_static/shared"
-fi
-
-if [ ! -d "/data/web_static/releases/test" ];
-then
-    sudo mkdir "/data/web_static/releases/test"
-fi
-
-if [ ! -f "/data/web_static/releases/test/index.html" ];
-then
-    sudo touch "/data/web_static/releases/test/index.html"
-fi
+# Checks if directory path exist and creates
+sudo mkdir -p /data/web_static/releases/test/
+sudo mkdir -p /data/web_static/shared/
+sudo mkdir -p /data/web_static/current/
 
 SOURCE_DIR = "/data/web_static/current"
 TARGET_DIR = "/data/web_static/releases/test/"
