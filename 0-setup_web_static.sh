@@ -23,8 +23,8 @@ cat > /data/web_static/releases/test/index.html <<'EOF'
 </html>
 EOF
 
-SOURCE_DIR = "/data/web_static/current"
-TARGET_DIR = "/data/web_static/releases/test/"
+SOURCE_DIR="/data/web_static/current"
+TARGET_DIR="/data/web_static/releases/test/"
 
 # Remove existing symbolic link if it exists
 if [ -L "$SOURCE_DIR" ]; then
