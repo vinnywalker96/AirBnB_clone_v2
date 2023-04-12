@@ -12,7 +12,6 @@ fi
 # Checks if directory path exist and creates
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared/
-sudo mkdir -p /data/web_static/current/
 cat > /data/web_static/releases/test/index.html <<'EOF'
 <html>
     <head>
