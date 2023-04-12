@@ -58,10 +58,3 @@ sudo ln -s "$TARGET_DIR" "$SOURCE_DIR"
 
 # Give ownership  to ubuntu user
 sudo chown -R $USER:$USER /data/
-sudo chown -R 755 /data/
-
-
-
-
-
-
