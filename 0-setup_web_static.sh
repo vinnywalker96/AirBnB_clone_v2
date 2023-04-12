@@ -57,7 +57,8 @@ fi
 sudo ln -s "$TARGET_DIR" "$SOURCE_DIR"
 
 # Give ownership  to ubuntu user
-sudo chown -R $USER:$USER /data/
+sudo chown -R $USER:$USER /data/web_static
+sudo chown -R 755 /data/web_static
 
 
 
