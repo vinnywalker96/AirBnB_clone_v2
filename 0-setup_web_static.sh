@@ -25,13 +25,8 @@ EOF
 SOURCE_DIR="/data/web_static/current"
 TARGET_DIR="/data/web_static/releases/test/"
 
-# Remove existing symbolic link if it exists
-if [ -L "$SOURCE_DIR" ]; then
-  sudo rm "$SOURCE_DIR"
-fi
-
 # Creates a new link
-sudo ln -s "$TARGET_DIR" "$SOURCE_DIR"
+sudo ln -sf "$TARGET_DIR" "$SOURCE_DIR"
 
 # Give ownership  to ubuntu user
 sudo chown -R ubuntu /data/
