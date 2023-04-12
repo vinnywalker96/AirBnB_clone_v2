@@ -13,6 +13,15 @@ fi
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/current/
+sudo cat > /data/web_static/releases/test/index.html <<'EOF'
+<html>
+    <head>
+    </head>
+    <body>
+         Holberton School
+    </body>
+</html>
+EOF
 
 SOURCE_DIR = "/data/web_static/current"
 TARGET_DIR = "/data/web_static/releases/test/"
