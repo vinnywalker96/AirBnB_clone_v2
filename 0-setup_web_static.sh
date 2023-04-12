@@ -20,6 +20,11 @@ then
     sudo mkdir "/data/web_static/"
 fi
 
+if [ ! -d "data/web_static/current" ];
+then
+    sudo mkdir "data/web_static/current"
+fi
+
 if [ ! -d "/data/web_static/releases" ];
 then
     sudo mkdir "/data/web_static/releases/"
@@ -51,8 +56,9 @@ fi
 # Creates a new link
 sudo ln -s "$TARGET_DIR" "$SOURCE_DIR"
 
-# Give ownership of /data to ubuntu user
-sudo chown -R ubuntu:ubuntu /data/
+# Give ownership  to ubuntu user
+sudo chown -R ubuntu:ubuntu /data/web_static
+
 
 
 
