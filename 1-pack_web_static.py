@@ -12,9 +12,8 @@ def do_pack():
         file_name = "web_static_{}.tgz".format(current_time)
         folder_name = "versions"
         local("mkdir -p {}".format(folder_name))
-        local("tar -cvzf {}/{} web_static".format(folder_name, file_name))
-        size = os.path.getsize("{}/{}".format(folder_name, filename))
-        print("web_static packed: {}/{} -> {}".format(folder_name, file_name, size))
+        local("tar -cvzf {}/{} web_static".format(folder_name, 
+                                           file_name))
+        return "web_static packed: {}/{}".format(folder_name, file_name)
     except:
         return None
-
