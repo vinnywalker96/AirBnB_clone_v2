@@ -44,7 +44,7 @@ printf %s "server{
 	index index.html index.htm;
 
 	location /hbnb_static {
-		alias /data/web_static/current/hbnb_static;
+		root /data/web_static/current/;
 		
 	}
 
