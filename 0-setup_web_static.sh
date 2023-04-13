@@ -35,16 +35,14 @@ sudo chgrp -R ubuntu /data/
 printf %s "server{
  	listen 80 default_server;
 	listen [::]:80 default_server;
-
-	server_name vestec.tech www.vestec.tech;
-
-	add_header X-Served-By $hostname;
-	
+	add_header X-Served-By $HOSTNAME;
+	server_name vestec.tech;
 	root /var/www/html;
 	index index.html index.htm;
 
 	location /hbnb_static {
-		root /data/web_static/current/;
+		alias  /data/web_static/current/;
+		index index.html index.htm;
 		
 	}
 
