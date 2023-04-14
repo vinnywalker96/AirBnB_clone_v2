@@ -21,7 +21,7 @@ def do_deploy(archive_path):
     """
     if not os.path.exists(archive_path):
         return False
-   
+
     try:
         tgz_file = os.path.basename(archive_path)
         put(archive_path, "/tmp/{}".format(tgz_file))
@@ -31,7 +31,8 @@ def do_deploy(archive_path):
             .format(tgz_file, dir_name))
         run("rm -rf /tmp/{}".format(tgz_file))
         run("rm -rf /data/web_static/current")
-        run("ln -s /data/web_static/releases/{} /data/web_static/current".format(dir_name))
+        run("ln -s /data/web_static/releases/{} /data/web_static/current"
+            .format(dir_name))
         print("New version deployed!")
         return True
     except Exception as err:
