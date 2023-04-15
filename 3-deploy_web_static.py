@@ -63,4 +63,5 @@ def deploy():
     if not archive_path:
         return False
     print(archive_path)
-    do_deploy(archive_path)
+    deploy_status = do_deploy(archive_path)
+    return deploy_status
