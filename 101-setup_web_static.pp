@@ -9,7 +9,7 @@ exec {'update server':
 # install nginx web server
 package { 'nginx':
     ensure   => present,
-    provider => 'apt',
+    provider => 'apt-get',
 }
 
 file { '/data/web_static/shared':
