@@ -13,7 +13,7 @@ package { 'nginx':
     provider => 'apt-get',
 }
 
-file { '/data/web_static/shared':
+file { '/data':
     ensure => directory,
     mode => '0755',
     owner => 'ubuntu',
