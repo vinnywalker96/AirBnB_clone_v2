@@ -1,19 +1,12 @@
 # sets up your web servers for the deployment of web_static. 
-
 #updates ubuntu server
-exec {'update server':
-    command  => 'apt-get update',
-    user => 'root',
-    provider => 'shell',
-}
-
 # install nginx web server
 package { 'nginx':
     ensure   => present,
     provider => 'apt-get',
 }
 
-file { '/data':
+file { '/data/web_static/shared':
     ensure => directory,
     mode => '0755',
     owner => 'ubuntu',
