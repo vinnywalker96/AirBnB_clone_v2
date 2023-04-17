@@ -1,40 +1,48 @@
-# sets up your web servers for the deployment of web_static. 
-#updates ubuntu server
-# install nginx web server
+# Configures a web server for deployment of web_static.
+
 package { 'nginx':
-    ensure   => present,
-    provider => 'apt-get',
-}
+  ensure   => 'present',
+  provider => 'apt'
+} ->
+
+file { '/data':
+  ensure  => 'directory'
+} ->
+
+file { '/data/web_static':
+  ensure => 'directory'
+} ->
+
+file { '/data/web_static/releases':
+  ensure => 'directory'
+} ->
+
+file { '/data/web_static/releases/test':
+  ensure => 'directory'
+} ->
 
 file { '/data/web_static/shared':
-    ensure => directory,
-    mode => '0755',
-    owner => 'ubuntu',
-    group => 'ubuntu',
-    recurse => true,
-}
-
-file { '/data/web_static/releases/test/':
-    ensure => directory,
-    mode => '0755',
-    owner => 'ubuntu',
-    group => 'ubuntu',
-    recurse => true,
-}
+  ensure => 'directory'
+} ->
 
 file { '/data/web_static/releases/test/index.html':
-    content => 'Holberton School',
-    require => Package['nginx'],
-}
- 
+  ensure  => 'present',
+  content => "Holberton School Puppet\n"
+} ->
+
 file { '/data/web_static/current':
-    ensure => link,
-    target => '/data/web_static/releases/test/',
+  ensure => 'link',
+  target => '/data/web_static/releases/test'
+} ->
+
+exec { 'chown -R ubuntu:ubuntu /data/':
+  path => '/usr/bin/:/usr/local/bin/:/bin/'
 }
 
 file { '/etc/nginx/sites-available/default':
-    content => "\
-    server {
+  ensure  => 'present',
+  content => "\
+  server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 	add_header X-Served-By $HOSTNAME;
@@ -57,10 +65,9 @@ file { '/etc/nginx/sites-available/default':
     }",
     require => Package['nginx'],
     notify => Servive['nginx'],
-}
 
-service { 'nginx':
-    ensure => 'running',
-    enable => true,
-    require => Package['nginx'],
+} ->
+
+exec { 'nginx restart':
+  path => '/etc/init.d/'
 }
