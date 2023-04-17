@@ -18,13 +18,15 @@ file { '/data/web_static/shared':
     owner => 'ubuntu',
     group => 'ubuntu',
     mode => '0755',
+    recurse => true,
 }
 ->
 file { '/data/web_static/releases/test/':
     ensure => directory,
     owner => 'ubuntu',
-    group => 'ubuntu,
+    group => 'ubuntu',
     mode => '0755',
+    recurse => true,
 }
 ->
 file { '/data/web_static/releases/test/index.html':
@@ -32,7 +34,7 @@ file { '/data/web_static/releases/test/index.html':
     require => Package['nginx'],
 }
 -> 
-file { '/datta/web_static/current':
+file { '/data/web_static/current':
     ensure => link,
     target => '/data/web_static/releases/test/',
     force => true,
