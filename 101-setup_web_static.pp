@@ -2,8 +2,9 @@
 
 #updates ubuntu server
 exec {'update server':
-    command  => '/usr/bin/apt-get update',
-    refreshonly =>  true,
+    command  => 'apt-get update',
+    user => 'root',
+    provider => 'shell',
 }
 
 # install nginx web server
@@ -14,17 +15,17 @@ package { 'nginx':
 
 file { '/data/web_static/shared':
     ensure => directory,
+    mode => '0755',
     owner => 'ubuntu',
     group => 'ubuntu',
-    mode => '0755',
     recurse => true,
 }
 
 file { '/data/web_static/releases/test/':
     ensure => directory,
+    mode => '0755',
     owner => 'ubuntu',
     group => 'ubuntu',
-    mode => '0755',
     recurse => true,
 }
 
