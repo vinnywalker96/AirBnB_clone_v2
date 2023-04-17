@@ -14,6 +14,12 @@ class nginx_server {
    file { '/data':
        ensure => directory,
    }
+   exec { 'chown -R ubuntu /data/':
+        path => '/usr/bin/:/usr/local/bin/:bin/'
+   }
+   exec { 'chgrp -R ubuntu /data/':
+        path => '/usr/bin/:/usr/local/bin/:/bin/'
+   }
 }
 
 include nginx_server
