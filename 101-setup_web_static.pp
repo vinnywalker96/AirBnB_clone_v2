@@ -11,7 +11,7 @@ class nginx_server {
        require => Package['nginx'],
    }
 
-   file { '/data/':
+   file { '/data':
        ensure => directory,
    }
 }
