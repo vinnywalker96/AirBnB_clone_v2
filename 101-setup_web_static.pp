@@ -2,17 +2,16 @@
 
 #updates ubuntu server
 exec {'update server':
-    command  => 'apt-get update',
-    user     => 'root',
-    provider => 'shell',
+    command  => '/usr/bin/apt-get update',
+    refreshonly =>  true,
 }
-->
+
 # install nginx web server
 package { 'nginx':
     ensure   => present,
     provider => 'apt',
 }
-->
+
 file { '/data/web_static/shared':
     ensure => directory,
     owner => 'ubuntu',
@@ -20,7 +19,7 @@ file { '/data/web_static/shared':
     mode => '0755',
     recurse => true,
 }
-->
+
 file { '/data/web_static/releases/test/':
     ensure => directory,
     owner => 'ubuntu',
@@ -28,18 +27,17 @@ file { '/data/web_static/releases/test/':
     mode => '0755',
     recurse => true,
 }
-->
+
 file { '/data/web_static/releases/test/index.html':
     content => 'Holberton School',
     require => Package['nginx'],
 }
--> 
+ 
 file { '/data/web_static/current':
     ensure => link,
     target => '/data/web_static/releases/test/',
-    force => true,
 }
-->
+
 file { '/etc/nginx/sites-available/default':
     content => "\
     server {
@@ -66,7 +64,7 @@ file { '/etc/nginx/sites-available/default':
     require => Package['nginx'],
     notify => Servive['nginx'],
 }
-->
+
 service { 'nginx':
     ensure => 'running',
     enable => true,
