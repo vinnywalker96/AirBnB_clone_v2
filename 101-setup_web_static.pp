@@ -11,9 +11,8 @@ class nginx_server {
        require => Package['nginx'],
    }
 
-   file { '/data/web_static/releases/test':
-        ensure => directory,
-        recurse => true,
+   exec { 'mkdir -p /data/web_static/releases/test/':
+       path => '/usr/bin/:/usr/local/bin/:/bin/'
   }
    exec { 'chown -R ubuntu /data/':
         path => '/usr/bin/:/usr/local/bin/:bin/'
