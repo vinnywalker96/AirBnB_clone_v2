@@ -11,12 +11,8 @@ class nginx_server {
        require => Package['nginx'],
    }
 
-   file { '/data/web_static/releases/':
+   file { '/data/':
        ensure => directory,
-       mode => '0755',
-       owner => 'ubuntu',
-       group => 'ubuntu',
-       recurse => true,
    }
 }
 
