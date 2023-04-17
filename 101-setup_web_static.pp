@@ -38,14 +38,14 @@ class nginx_server {
    }
 
    
-   exec { 'chown -R ubuntu /data/':
+   exec { 'chown -R ubuntu /data/*':
         path => '/usr/bin/:/usr/local/bin/:bin/'
    }
-   exec { 'chgrp -R ubuntu /data/':
+   exec { 'chgrp -R ubuntu /data/*':
         path => '/usr/bin/:/usr/local/bin/:/bin/'
    }
 
-   file { '/data/web_static/current':
+   file { '/data/web_static/current/':
        ensure => link,
        target => '/data/web_static/releases/test'
    }
