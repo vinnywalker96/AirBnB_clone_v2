@@ -15,7 +15,7 @@ class nginx_server {
        ensure => directory,
    }
 
-   file { '/data/web_static/':
+   file { '/data/web_static':
        ensure => directory,
    }
  
@@ -38,10 +38,10 @@ class nginx_server {
    }
 
    
-   exec { 'chown -R ubuntu /data/*':
+   exec { 'chown -R ubuntu /data':
         path => '/usr/bin/:/usr/local/bin/:bin/'
    }
-   exec { 'chgrp -R ubuntu /data/*':
+   exec { 'chgrp -R ubuntu /data':
         path => '/usr/bin/:/usr/local/bin/:/bin/'
    }
 
