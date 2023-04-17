@@ -11,14 +11,30 @@ class nginx_server {
        require => Package['nginx'],
    }
 
-   exec { 'mkdir -p /data/web_static/releases/test/':
+    exec { 'mkdir -p /data/web_static/releases/test/':
        path => '/usr/bin/:/usr/local/bin/:/bin/'
-  }
+   }
+
+   exec { 'mkdir -p /data/web_static/shared/':
+        path => '/usr/bin/:/usr/local/bin/:/bin/'
+   }
+
+   file { '/data/web_static/releases/test/index.html':
+        content => 'Holberton School',
+        require => Package['nginx']
+   }
+
+   
    exec { 'chown -R ubuntu /data/':
         path => '/usr/bin/:/usr/local/bin/:bin/'
    }
    exec { 'chgrp -R ubuntu /data/':
         path => '/usr/bin/:/usr/local/bin/:/bin/'
+   }
+
+   file { '/data/web_static/current':
+       ensure => link,
+       target => '/data/web_static/releases/test'
    }
 }
 
