@@ -13,8 +13,8 @@ sudo chown -R ubuntu /data/
 sudo chgrp -R ubuntu /data/
 CONFIG=\
 "server{
-        listern 80 default_server;
-        listern [::]:80 default_server;
+        listen 80 default_server;
+        listen [::]:80 default_server;
         add_header X-Served-By $HOSTNAME;
         root /var/www/html;
         index index.html index.htm;
