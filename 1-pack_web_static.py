@@ -5,7 +5,7 @@ from datetime import datetime
 
 def do_pack():
     """
-    Generates a .tgz file from the contents of the web_static 
+    Generates a .tgz file from the contents of the web_static
     """
     try:
         current_time = datetime.utcnow().strftime("%Y%m%d%H%M%S")
@@ -16,4 +16,3 @@ def do_pack():
         return "web_static packed: {}/{}".format(folder_name, file_name)
     except:
         return None
-    
