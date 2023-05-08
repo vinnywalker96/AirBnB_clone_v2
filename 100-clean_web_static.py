@@ -24,3 +24,4 @@ def do_clean(number=0):
     with cd('/data/web_static/releases'):
         run('ls -1t | tail -n +{} | xargs rm -rf --'
             .format(number))
+        run('ls -1 | grep -v ^current | xargs -I {} rm -rf -- ./{}')
