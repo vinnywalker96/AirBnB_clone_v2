@@ -7,6 +7,7 @@ import os
 env.hosts = ["54.144.46.42", "100.25.194.141"]
 env.user = "ubuntu"
 
+
 def do_deploy(archive_path):
     """
     distributes an archive to your web servers
@@ -28,5 +29,4 @@ def do_deploy(archive_path):
         print("New version deployed!")
         return True
     except:
-        return False
-        
+        return False        
