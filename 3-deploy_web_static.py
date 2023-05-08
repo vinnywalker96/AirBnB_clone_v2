@@ -2,6 +2,7 @@
 from fabric.api import env
 from fabric.api import put
 from fabric.api import run
+from fabric.api import local
 from datetime import datetime
 import os
 
