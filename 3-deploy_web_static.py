@@ -2,6 +2,7 @@
 from fabric.api import env
 from fabric.api import put
 from fabric.api import run
+from datetime import datetime
 import os
 
 env.hosts = ["54.144.46.42", "100.25.194.141"]
@@ -21,6 +22,7 @@ def do_pack():
         return "web_static packed: {}/{}".format(folder_name, file_name)
     except:
         return None
+
 
 def do_deploy(archive_path):
     """
@@ -44,6 +46,7 @@ def do_deploy(archive_path):
         return True
     except Exception as e:
         return False
+
 
 def deploy():
     """Create and distribute an archive to your web servers
