@@ -24,7 +24,7 @@ def hbnb():
     return 'HBNB'
 
 
-@app.route('/c/<text>')
+@app.route('/c/<path:text>')
 def display_c(text):
     """Returns C followed by text"""
     sub_path = ""
