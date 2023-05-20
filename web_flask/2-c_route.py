@@ -19,13 +19,13 @@ def hello_hbnb():
     return 'Hello HBNB!'
 
 
-@app.route('/hbnb')
+@app.route('/hbnb', strict_slashes=False)
 def hbnb():
     """Returns 'HBNB'"""
     return 'HBNB'
 
 
-@app.route('/c/<path:text>')
+@app.route('/c/<path:text>', strict_slashes=False)
 def display_c(text):
     """Returns C followed by text"""
     sub_path = ""
