@@ -32,6 +32,7 @@ def display_c(text):
     for sub in text:
         if sub == "_":
             sub_path += " "
+            continue
         sub_path += sub
     return "C {}".format(escape(sub_path))
 
