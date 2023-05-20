@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Starts a Flask web application.
+"""Starts a Flask web App
 
 The application listens on 0.0.0.0, port 5000.
 Routes:
     /: Displays 'Hello HBNB!'
-   /hbnb: Displays 'HBNB'
-  /c/<text>: display 'C' followed by the symbol
+    /hbnb: Displays 'HBNB'
+    /c/<text>: display 'C' followed by the symbol
 """
 from flask import Flask
 from markupsafe import escape
@@ -27,7 +27,7 @@ def hbnb():
 
 @app.route('/c/<text>', strict_slashes=False)
 def display_c(text):
-    """Returns C followed by text"""
+    """Returns C (followed by text)"""
     sub_path = ""
     for sub in text:
         if sub == "_":
