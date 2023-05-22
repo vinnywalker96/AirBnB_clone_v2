@@ -52,5 +52,11 @@ def show_python(text="is cool"):
     return "Python {}".format(escape(text))
 
 
+@app.route('/number/<int:n>', strict_slashes=False)
+def show_n(n):
+    """Return n is number"""
+    return "{} is a number".format(escape(n))
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
