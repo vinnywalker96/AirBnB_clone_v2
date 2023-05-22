@@ -52,9 +52,9 @@ def show_python(text="is cool"):
     return "Python {}".format(escape(text))
 
 
-@app.route('/number/<n>', strict_slashes=False)
+@app.route('/number/<int:n>', strict_slashes=False)
 def show_number(n):
-    """Return n"""
+    """Return n is number"""
     return "{} is a number".format(escape(n))
 
 
