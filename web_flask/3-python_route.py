@@ -54,8 +54,8 @@ def show_python(text="is cool"):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def show_number(n):
-    """Return Number passed"""
-    return escape(n)
+    """Return n"""
+    return "{}".format(escape(n))
 
 
 if __name__ == "__main__":
