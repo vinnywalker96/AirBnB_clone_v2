@@ -38,7 +38,8 @@ def display_c(text):
     return 'C {}'.format(escape(text))
 
 
-@app.route('/python/(<text>)', strict_slashes=False)
+@app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
 def show_python(text="is cool"):
     """Returns Python (followed by text)"""
     sub_path = ""
