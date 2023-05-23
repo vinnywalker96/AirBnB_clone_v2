@@ -74,8 +74,8 @@ class DBStorage:
         """configuration
         """
         Base.metadata.create_all(self.__engine)
-        sec = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(sec)
+        SESSION = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        Session = scoped_session(SESSION)
         self.__session = Session()
 
     def close(self):
