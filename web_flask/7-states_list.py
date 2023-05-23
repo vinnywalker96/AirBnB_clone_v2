@@ -6,7 +6,7 @@ Routes:
         the list of all State objects present in DBStorage sorted by name
 """
 from flask import Flask, render_template
-from models import storage, State
+from models import storage
 
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ def states_list():
     return render_template('7-states_list.html', state=sorted_states)
 
 @app.teardown_appcontext
-def close_session():
+def close_session(exception=None):
     """Close database connection"""
     storage.close()
 
